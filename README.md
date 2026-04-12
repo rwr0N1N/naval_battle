@@ -22,8 +22,10 @@ Ensure your Pico 2W is running **WebMite v6.02.01** or higher. This version is c
 
 ### 2. Network Configuration
 Connect your PicoCalc to WiFi via the WebMite console:
-```mmbasic
+
+
 OPTION WIFI "Your_SSID", "Your_Password"
+
 3. Server Relay
 
 The game requires a Python Flask relay to synchronize moves.
