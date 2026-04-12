@@ -48,7 +48,9 @@ Update the Const HOST$ in the naval_battle.bas file to point to your URL.
 3. Loading the Game
 
 Load the naval_battle.bas file onto your Pico and run it.
+
 🎮 How to Play
+
 The War Room (Lobby)
 
 Slots 1-5: You can manage 5 independent "Theaters of War".
