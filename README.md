@@ -36,6 +36,7 @@ Your Pico 2W must be running **WebMite v6.02.01** or higher.
 Configure your WiFi connection via the console:
 
 OPTION WIFI "Your_SSID", "Your_Password"
+
 2. Server Relay
 
 The game uses a Python Flask relay to sync data between players.
