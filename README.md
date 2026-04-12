@@ -1,80 +1,85 @@
-# ⚓ Pico Naval Online (PicoCalc Edition) - Beta v5.8.1
+# ⚓ Pico Naval Online (PicoCalc Edition)
+> **A multiplayer networked Battleship game for the ClockworkPi PicoCalc.**
 
-A retro-multiplayer Battleship game for the **ClockworkPi PicoCalc** using networked communication.
+[![Status](https://img.shields.io/badge/Status-Beta--Testing-orange)](#)
+[![Firmware](https://img.shields.io/badge/WebMite-6.02.01-blue)](#)
+[![Hardware](https://img.shields.io/badge/Hardware-PicoCalc%20%2F%20RP2350-green)](#)
 
+## 🚀 Overview
+This project brings the classic Naval Battle (Battleship) to the **Raspberry Pi Pico 2W**, specifically optimized for the **ClockworkPi PicoCalc** shell. It features a robust multi-slot management system, allowing you to run up to 5 concurrent online matches.
 
+### 💻 Confirmed Hardware Setup
+| Component | Specification |
+| :--- | :--- |
+| **Device** | ClockworkPi PicoCalc |
+| **MCU** | Raspberry Pi Pico 2W (RP2350) |
+| **Firmware** | WebMite MMBasic v6.02.01 |
+| **Display** | VGA/LCD via WebMite Framebuffer |
 
-## 🚀 The Project
-This is an online version of the classic Naval Battle game, optimized for the **Raspberry Pi Pico 2W (RP2350)**. It features a multi-slot system that allows you to manage up to 5 concurrent matches on different "theaters of war."
+---
 
-### 💻 Verified Hardware Setup
-This project has been tested and is 100% functional on:
-- **Device:** ClockworkPi PicoCalc (Retro calculator shell).
-- **MCU:** Raspberry Pi Pico 2W (RP2350).
-- **Firmware:** WebMite MMBasic v6.02.01.
+## ⚠️ PROJECT STATUS: BETA
+This project is currently in **Active Testing**. While the core gameplay and networking are functional, users may encounter edge-case bugs.
+
+### 🛡️ How to Help
+If you find any errors (Network timeouts, graphical glitches, or logic bugs):
+1. Open an **Issue** in this repository.
+2. Provide details about your hardware and the steps that caused the error.
+*Every bug reported will be analyzed and fixed in the next version with AI assistance!*
 
 ---
 
 ## 🛠️ Installation & Setup
 
-### 1. Firmware
-Ensure your Pico 2W is running **WebMite v6.02.01** or higher. This version is critical for stable TCP/IP communication and handling the RP2350's memory architecture.
-
-### 2. Network Configuration
-Connect your PicoCalc to WiFi via the WebMite console:
-
+### 1. Firmware Configuration
+Your Pico 2W must be running **WebMite v6.02.01** or higher. 
+Configure your WiFi connection via the console:
 
 OPTION WIFI "Your_SSID", "Your_Password"
+2. Server Relay
 
-3. Server Relay
+The game uses a Python Flask relay to sync data between players.
 
-The game requires a Python Flask relay to synchronize moves.
+Upload relay_server.py to your host (e.g., PythonAnywhere).
 
-    Host the provided relay_server.py on PythonAnywhere or any public VPS.
+Update the Const HOST$ in the naval_battle.bas file to point to your URL.
 
-    Update the Const HOST$ in the .bas file to your server address.
+3. Loading the Game
 
-🎮 How to Play (Tutorial)
+Load the naval_battle.bas file onto your Pico and run it.
+🎮 How to Play
+The War Room (Lobby)
 
-    The War Room: Upon launching, you will see 5 slots. Empty slots are for new games; active slots let you resume battles.
+Slots 1-5: You can manage 5 independent "Theaters of War".
 
-    Matchmaking: Press [ENTER] to join the queue. The game will assign you a Match ID.
+[ENTER]: Search for a new match.
 
-    Deployment: - Use Arrow Keys to move your ships.
+[1-5]: Switch between active battles.
 
-        Press [SPACE] to rotate.
+Deployment Phase
 
-        Press [ENTER] to lock the position.
+Arrow Keys: Move the ship.
 
-        Note: The "Iron Wall" logic prevents ships from clipping outside the 10x10 grid.
+[SPACE]: Rotate the ship.
 
-    Battle: - When it's your turn, move the cursor and press [ENTER] to fire.
+[ENTER]: Confirm placement.
 
-        Press [V] at any time to toggle between your Fleet View and the Radar View.
+Iron Wall Logic: Ships are automatically clamped to prevent clipping outside the 10x10 grid.
 
-        Press [ESC] to return to the War Room and check other active matches.
+Battle Phase
 
-⚠️ BETA PHASE: Call for Testers
+[ENTER]: Fire your missile on the target.
 
-This project is currently in Beta Testing. We are looking for community feedback to identify edge cases and optimize network latency.
-🛡️ Known Issues & Troubleshooting
+[V]: Toggle view between your Fleet and the Radar.
 
-    Desyncs: If the network is unstable, polling might lag. Check the status bar at the bottom.
+[ESC]: Return to the War Room (The game continues in the background).
 
-    Index Errors: We implemented guards for n_idx, but please report if the ship placement sequence breaks.
-
-🔧 How to contribute
-
-If you find a bug:
-
-    Open an Issue on this repository.
-
-    Provide your WebMite version and a brief description of the error.
-
-    Every reported bug is analyzed and fixed with AI assistance!
+📜 Acknowledgments
 
 Author: rwr0n1n
 
-Co-Developer: Gemini AI
+AI Collaborator: Gemini AI
 
-Firmware Base: WebMite by Peter Mather & Geoff Graham.
+MMBasic/WebMite: Peter Mather & Geoff Graham.
+
+Developed for the retro-computing community. Sink 'em all! ⚓🚀
